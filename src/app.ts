@@ -8,10 +8,12 @@ import {
 @autoinject()
 export class App {
 
-  // UI logic => this does not belong into the state
+  // this does not belong into the state as its solely related to this component
+  // and represents its internal UI logic
   public newDevCategory: DeveloperCategory = "junior";
   public newDevName: string = "";
   public newDevSkills: string = "";
+
   // another ui logic handler to show disable the add button while inserting a new developer
   public addingDeveloperInProgress: boolean = false;
   
@@ -20,9 +22,7 @@ export class App {
   public state: DeveloperState;
 
   // inject the store, alternatively you can still inject the service and do it the old-school way
-  constructor(private store: DeveloperStore) {
-
-  }
+  constructor(private store: DeveloperStore) {}
 
   attached() {
     // this is the single point of data subscription, the state inside the component will be automatically updated
@@ -48,7 +48,7 @@ export class App {
         .map((s) => s.trim())
     ).subscribe(null, null, () => this.addingDeveloperInProgress = false);
 
-    // no need to subscribe to the observable since the state.developer subscription
+    // no need to subscribe to the observable since the state subscription
     // will be automatically updated once the new developer is added
   }
 }
