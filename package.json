@@ -1,7 +1,7 @@
 {
-  "name": "aurelia-rxjs",
-  "description": "An Aurelia client application.",
-  "version": "0.1.0",
+  "name": "aurelia-hoc-state",
+  "description": "An Aurelia application showing the use of higher order components and a single state approach.",
+  "version": "1.0.0",
   "repository": {
     "type": "???",
     "url": "???"

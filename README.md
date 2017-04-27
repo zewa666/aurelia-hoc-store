@@ -1,0 +1,34 @@
+# Aurelia with higher order components and a single state store
+
+This project shows an example of how you can structure your application to use an React/Redux architecture, yet not having to sacrifice
+flexiblity and power of Aurelia's two-way binding.
+Besides that the store implementation is based on RxJS instead of Redux. It uses a classic service class as backbone.
+The reason for this is to allow a smoother introduction of new concepts in an existing app.
+
+## Setup
+* Checkout the repository
+* `npm install -g aurelia-cli` to install the Aurelia CLI globally
+* install the examples dependencies inside the projects root with `npm install`
+* Make sure to install the [Redux DevTools Browser extension](http://extension.remotedev.io/) (e.g for [Chrome here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd))
+* run `au run --watch` to get started
+* open your browser with the address `http://localhost:9000`
+* you should notice the active Redux DevTools extension in your browser
+
+## Recommended way to review the example
+The sources, both code and templates, are fully documented to provide a good understanding how one feature and concepts builds upon the
+other. In order to get the most out of your first contact I'd recommend the following process:
+
+1. Start with the `main.ts`, Aurelia's main entry point.
+2. Go on with `app.ts` and `app.html`.
+3. After that start with the higher order components ViewModel `developer-overview.ts` and View `developer-overview.html`.
+
+> Do not get distracted by any references from the store, models or service classes yet
+
+4. Switch to the smart component `add-developer-form.ts` and `add-developer-form.html`.
+5. Continue with the dumb component `list-developers.ts` and `list-developers.html`
+6. Now its time to switch to the service and store implementation. Start with the `developer-models.ts` first.
+7. Continue to the classic service `developer-service.ts`.
+
+> Note that this service could be used as it is in a classic MVVM / Two-Way-Binding approach.
+
+8. Finish your journey with the `developer-store.ts`.
