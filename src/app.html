@@ -1,47 +1,7 @@
 <template>
   <h1>RxJS BehaviorSubject Store Demo</h1>
 
-  <form>
-    <h3>Add a new developer</h3>
-    <label for="cmb-category">
-      Category:<br />
-      <select id="cmb-category" value.bind="newDevCategory">
-        <option value="junior">Junior</option>
-        <option value="pro">Pro</option>
-      </select>
-    </label>
-
-    <br /><br />
-
-    <label for="txt-devname">
-      Name:<br />
-      <input type="text" value.bind="newDevName">
-    </label>
-
-    <br /><br />
-    
-    <label for="txt-devname">
-      Skills: (comma separated)<br />
-      <input type="text" value.bind="newDevSkills">
-    </label>
-    
-    <br /><br />
-
-    <button click.delegate="addDeveloper()" disabled.bind="addingDeveloperInProgress">Add Developer</button>
-  </form>
-
-  <br /><br />
-
-  <button click.delegate="store.loadAllDevs()">Load all devs</button>
-  <button click.delegate="store.loadProDevs()">Load pro devs</button>
-  <button click.delegate="store.loadJuniorDevs()">Load junior devs</button>
-
-  <ul>
-    <li repeat.for="dev of state.developers">
-      <b>Name:</b> ${dev.name} <br />
-      <b>Skills:</b> ${dev.skills.join(", ")}
-      <br />
-      <br />
-    </li>
-  </ul>
+  <!-- We're requiring the higher-order component as the single entry point for the feature -->
+  <developer-overview></developer-overview>
+  
 </template>

@@ -1,0 +1,16 @@
+<template>
+  <!-- for these simple functions, we can directly bind to the store actions -->
+  <button click.delegate="store.loadAllDevs()">Load all devs</button>
+  <button click.delegate="store.loadProDevs()">Load pro devs</button>
+  <button click.delegate="store.loadJuniorDevs()">Load junior devs</button>
+
+  <!-- we can render the list based on the passed in state -->
+  <ul>
+    <li repeat.for="dev of state.developers">
+      <b>Name:</b> ${dev.name} <br />
+      <b>Skills:</b> ${dev.skills.join(", ")}
+      <br />
+      <br />
+    </li>
+  </ul>
+</template>

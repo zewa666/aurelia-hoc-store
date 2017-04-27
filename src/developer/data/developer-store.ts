@@ -2,74 +2,19 @@ import {
   BehaviorSubject,
   Observable
 } from 'rxjs';
+
 import { 
   autoinject,
   LogManager
 } from 'aurelia-framework';
 
-export interface Developer {
-  name: string;
-  skills: string[];
-}
+import {
+  Developer,
+  DeveloperCategory,
+  DeveloperState
+} from './developer-models';
 
-export type DeveloperCategory = "junior" | "pro" | "all";
-
-const fakeBackend = {
-  proDevs: [
-    { name: "Awesome Dev", skills: ["JavaScript", "C#", "Fullstack"] },
-    { name: "Pro Dev", skills: ["C++", "C#", "Backend"] },
-    { name: "Old-School Champion Dev", skills: ["C++", "C", "Assembly"] },
-  ],
-  juniorDevs: [
-    { name: "Beginner Dev", skills: ["JavaScript", "HTML", "CSS"] },
-    { name: "So-called Dev", skills: ["If", "Else", "For"] },
-    { name: "Kinda Dev", skills: ["CSS", "HTML"] },
-  ]
-}
-
-export class DeveloperService {
-  public loadAllDevelopers(): Promise<Developer[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve([...fakeBackend.proDevs, ...fakeBackend.juniorDevs]);
-      }, 200);
-    });
-  }
-
-  public loadProDevelopers(): Promise<Developer[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(fakeBackend.proDevs);
-      }, 200);
-    });
-  }
-
-  public loadJuniorDevelopers(): Promise<Developer[]> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(fakeBackend.juniorDevs);
-      }, 200);
-    });
-  }
-
-  public addNewDeveloper(category: DeveloperCategory, name: string, skills: string[]): Promise<Developer> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const newDev = { name, skills };
-
-        fakeBackend[`${category}Devs`].push(newDev);
-        resolve(newDev);
-      }, 2000);
-    });
-  }
-}
-
-// this is our overall state for the developer feature, everything that is necessary can be stored here
-// keep UI relevant features inside the components though
-export interface DeveloperState {
-  developers: Developer[];
-  activeCategory: DeveloperCategory 
-}
+import { DeveloperService } from './developer-service';
 
 @autoinject()
 export class DeveloperStore {
