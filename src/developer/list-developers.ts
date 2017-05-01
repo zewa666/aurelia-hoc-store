@@ -3,18 +3,23 @@ import {
   bindable
 } from 'aurelia-framework';
 
-import { DeveloperState } from './data/developer-models';
-import { DeveloperStore } from './data/developer-store';
+import { Developer } from './data/developer-models';
+
 
 /*
- * a classic dumb component, all if its actions are directly called from within the store
- * inside the template
+ * a classic dumb component, all if its actions are passed in
+ * and directly called from within the template
  */
 @autoinject()
 export class ListDevelopers {
-  // the store gets passed in via element attributes
-  @bindable() public state: DeveloperState;
+  // the loaded developers are passed in as inputs
+  @bindable() public developers: Developer[];
 
-  // we can still reference the store via DI
-  constructor(private store: DeveloperStore) {}
+  // actions are passed in as inputs
+  @bindable() public loadAllDevs: Function;
+  @bindable() public loadProDevs: Function
+  @bindable() public loadJuniorDevs: Function
+
+  // no need for the store since this is a dumb component
+  constructor() {}
 }

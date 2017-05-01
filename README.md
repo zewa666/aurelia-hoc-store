@@ -32,3 +32,9 @@ other. In order to get the most out of your first contact I'd recommend the foll
 > Note that this service could be used as it is in a classic MVVM / Two-Way-Binding approach.
 
 8. Finish your journey with the `developer-store.ts`.
+
+## Feedback
+1. How do we enable support for middlewares, like Redux does?
+
+A middleware is comparable to Express.js like middlewares, as such that it adds different functionallity before the actual request response cycle is complete. In Redux this means we're adding features which overload the action dispatcher. In combination with RxJS BehaviorSubjects, that means we'd need to override the `next` method to apply additional middlewares before processing our own function.
+This is best done by subclassing the original BehaviorSubject and creating our own `MiddlewareBehaviorSubject` as depicted in the branch [middleware-behavior-subject](https://github.com/zewa666/aurelia-hoc-store/tree/middleware-behavior-subject). You can find the extended Subject [over here](https://github.com/zewa666/aurelia-hoc-store/blob/master/src/developer/data/middleware-behavior-subject.ts)

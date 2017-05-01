@@ -1,7 +1,4 @@
-import {
-  BehaviorSubject,
-  Observable
-} from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { 
   autoinject,
@@ -14,7 +11,9 @@ import {
   DeveloperState
 } from './developer-models';
 
+import { MiddlewareBehaviorSubject } from './middleware-behavior-subject';
 import { DeveloperService } from './developer-service';
+import { loggingMiddleware } from './middlewares';
 
 @autoinject()
 export class DeveloperStore {
@@ -34,7 +33,7 @@ export class DeveloperStore {
   // model your overall state as a BehaviorSubject(BHS) to be able to get the recent value
   // make sure the BHS is not exposed, so that from outside nobody is able to change the state
   // you can also specify the initial state (e.g. from localStorage) by passing it in as an attribute
-  private _state: BehaviorSubject<DeveloperState> = new BehaviorSubject(this.initialState);
+  private _state: MiddlewareBehaviorSubject<DeveloperState> = new MiddlewareBehaviorSubject(this.initialState, [loggingMiddleware]);
 
   // this observable is the only access for outside consumers, thus creating a single point of truth
   // it will propagate all changes made to the BHS

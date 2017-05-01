@@ -8,5 +8,8 @@
 
   <br /><br />
 
-  <list-developers state.bind="state"></list-developers>
+  <list-developers developers.bind="state.developers"
+                   load-all-devs.bind="store.loadAllDevs.bind(store)"
+                   load-pro-devs.bind="store.loadProDevs.bind(store)"
+                   load-junior-devs.bind="store.loadJuniorDevs.bind(store)"></list-developers>
 </template>
