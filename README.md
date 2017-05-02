@@ -38,3 +38,9 @@ other. In order to get the most out of your first contact I'd recommend the foll
 
 A middleware is comparable to Express.js like middlewares, as such that it adds different functionallity before the actual request response cycle is complete. In Redux this means we're adding features which overload the action dispatcher. In combination with RxJS BehaviorSubjects, that means we'd need to override the `next` method to apply additional middlewares before processing our own function.
 This is best done by subclassing the original BehaviorSubject and creating our own `MiddlewareBehaviorSubject` as depicted in the branch [middleware-behavior-subject](https://github.com/zewa666/aurelia-hoc-store/tree/middleware-behavior-subject). You can find the extended Subject [over here](https://github.com/zewa666/aurelia-hoc-store/blob/middleware-behavior-subject/src/developer/data/middleware-behavior-subject.ts)
+
+2. How to unit test the store and state depending components?
+
+Testing is always an important question when evaluation a new approach. By using RxJS as the base for this example, coupled with Aurelia's Component Tester, we're having a fully versatile solution to cover each test scenario.
+Inside the folder `test/unit` you can find the files [developer-store.spec.ts](https://github.com/zewa666/aurelia-hoc-store/blob/master/test/unit/developer-store.spec.ts) - for the store based unit tests - and [list-developer.spec.ts](https://github.com/zewa666/aurelia-hoc-store/blob/master/test/unit/list-developer.spec.ts) depicting how to test a dumb component, which accepts data via attribute inputs.
+The unit tests contain inline comments for all interesting details
