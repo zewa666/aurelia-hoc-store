@@ -41,6 +41,6 @@ This is best done by subclassing the original BehaviorSubject and creating our o
 
 2. How to unit test the store and state depending components?
 
-Testing is always an important question when evaluation a new approach. By using RxJS as the base for this example, coupled with Aurelia's Component Tester, we're having a fully versatile solution to cover each test scenario.
-Inside the folder `test/unit` you can find the files [developer-store.spec.ts](https://github.com/zewa666/aurelia-hoc-store/blob/master/test/unit/developer-store.spec.ts) - for the store based unit tests - and [list-developer.spec.ts](https://github.com/zewa666/aurelia-hoc-store/blob/master/test/unit/list-developer.spec.ts) depicting how to test a dumb component, which accepts data via attribute inputs.
+Testing is always an important question when evaluating a new approach. By using RxJS as the base for this example, coupled with Aurelia's Component Tester, we're having a fully versatile solution to cover each test scenario.
+Inside the folder `test/unit` you can find the files [developer-store.spec.ts](https://github.com/zewa666/aurelia-hoc-store/blob/master/test/unit/developer-store.spec.ts) - for the store based unit tests - and [list-developer.spec.ts](https://github.com/zewa666/aurelia-hoc-store/blob/master/test/unit/list-developer.spec.ts) depicting how to test a dumb component, which accepts data via attribute inputs. The later is a TestBed approach, showing a integration test, covering the DOM.
 The unit tests contain inline comments for all interesting details
