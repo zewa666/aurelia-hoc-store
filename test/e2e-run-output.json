@@ -1,0 +1,125 @@
+{
+  "actionsById": {
+    "0": {
+      "action": {
+        "type": "@@INIT"
+      },
+      "timestamp": 1500647519349,
+      "type": "PERFORM_ACTION"
+    },
+    "1": {
+      "action": {
+        "type": "@@INIT"
+      },
+      "timestamp": 1500647519866,
+      "type": "PERFORM_ACTION"
+    },
+    "2": {
+      "action": {
+        "type": "@@INIT"
+      },
+      "timestamp": 1500647520271,
+      "type": "PERFORM_ACTION"
+    }
+  },
+  "computedStates": [
+    {
+      "state": {
+        "activeCategory": null,
+        "developers": []
+      }
+    },
+    {
+      "state": {
+        "activeCategory": "all",
+        "developers": [
+          {
+            "name": "Awesome Dev",
+            "skills": [
+              "JavaScript",
+              "C#",
+              "Fullstack"
+            ]
+          },
+          {
+            "name": "Pro Dev",
+            "skills": [
+              "C++",
+              "C#",
+              "Backend"
+            ]
+          },
+          {
+            "name": "Old-School Champion Dev",
+            "skills": [
+              "C++",
+              "C",
+              "Assembly"
+            ]
+          },
+          {
+            "name": "Beginner Dev",
+            "skills": [
+              "JavaScript",
+              "HTML",
+              "CSS"
+            ]
+          },
+          {
+            "name": "So-called Dev",
+            "skills": [
+              "If",
+              "Else",
+              "For"
+            ]
+          },
+          {
+            "name": "Kinda Dev",
+            "skills": [
+              "CSS",
+              "HTML"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "state": {
+        "activeCategory": "junior",
+        "developers": [
+          {
+            "name": "Beginner Dev",
+            "skills": [
+              "JavaScript",
+              "HTML",
+              "CSS"
+            ]
+          },
+          {
+            "name": "So-called Dev",
+            "skills": [
+              "If",
+              "Else",
+              "For"
+            ]
+          },
+          {
+            "name": "Kinda Dev",
+            "skills": [
+              "CSS",
+              "HTML"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "currentStateIndex": 2,
+  "nextActionId": 3,
+  "skippedActionIds": [],
+  "stagedActionIds": [
+    0,
+    1,
+    2
+  ]
+}

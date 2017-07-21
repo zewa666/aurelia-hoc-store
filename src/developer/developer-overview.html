@@ -9,7 +9,7 @@
   <br /><br />
 
   <list-developers developers.bind="state.developers"
-                   load-all-devs.bind="store.loadAllDevs.bind(store)"
-                   load-pro-devs.bind="store.loadProDevs.bind(store)"
-                   load-junior-devs.bind="store.loadJuniorDevs.bind(store)"></list-developers>
+                   load-all-devs.call="store.loadAllDevs()"
+                   load-pro-devs.call="store.loadProDevs()"
+                   load-junior-devs.call="store.loadJuniorDevs()"></list-developers>
 </template>

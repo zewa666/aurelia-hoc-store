@@ -117,6 +117,11 @@ export class DeveloperStore {
   }
 
   private setupDevTools() {
+    // define global access to store
+    (<any>window).RxSE = {
+      store: this._state
+    };
+
     // check whether the user has the Redux-DevTools browser extension installed
     if ((<any>window).devToolsExtension) {
       this.logger.info("DevTools are available");
@@ -133,8 +138,14 @@ export class DeveloperStore {
         this.logger.debug(`DevTools sent change ${message.type}`);
 
         if (message.type === "DISPATCH") {
+          let newState = message.state ? JSON.parse(message.state) : null;
+
+          if (message.payload && message.payload.type === "IMPORT_STATE") {
+            const currState: number = message.payload.nextLiftedState.currentStateIndex;
+            newState = message.payload.nextLiftedState.computedStates[currState].state;
+          }
           // the state is sent as string, so don't forget to parse it :)
-          this._state.next(JSON.parse(message.state));
+          this._state.next(newState);
         }
       });
     }
